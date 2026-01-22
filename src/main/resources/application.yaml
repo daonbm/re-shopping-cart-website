@@ -6,8 +6,7 @@ spring:
     name: re-shopping-cart-web-app
 
   profiles:
-    active: prod # Production development
-    # active: local # Local development
+    active: ${SPRING_PROFILES_ACTIVE:prod}
 
   datasource:
     url: ${DB_URL}
@@ -26,7 +25,7 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: none
-    show-sql: false
+    show-sql: ${SHOW_SQL:false}
 
   thymeleaf:
-    cache: false
+    cache: ${THYMELEAF_CACHE:false}
